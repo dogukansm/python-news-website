@@ -1,0 +1,59 @@
+{% load static %}
+<div class="space-70"></div>
+<div class="footer footer_area1 primay_bg">
+   <div class="container">
+      <div class="cta">
+         <div class="row">
+            <div class="col-md-6 align-self-center">
+               <div class="footer_logo logo">
+                  <a href="{% url 'index' %}">
+                     <img src="{{ ayarlar.LogoNegatif.url }}" alt="logo">
+                  </a>
+               </div>
+               <div class="social2">
+                  <ul class="inline">
+                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                     <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="copyright">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-4 align-self-center">
+               <p>{{ ayarlar.SiteCopyright | safe }}</p>
+            </div>
+            <div class="col-lg-8 align-self-center">
+               <div class="copyright_menus text-right">
+                  <div class="language"></div>
+                  <div class="copyright_menu inline">
+                     <ul>
+                        {% for kategori in kategoriler %}
+                           <li><a href="{% url 'kategoriler' id=kategori.ID %}">{{ kategori.Baslik }}</a></li>
+                        {% endfor %}                        
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<script src="{% static './js/plugins/jquery.2.1.0.min.js' %}"></script>
+<script src="{% static './js/plugins/bootstrap.min.js' %}"></script>
+<script src="{% static './js/plugins/jquery.nav.js' %}"></script>
+<script src="{% static './js/plugins/jquery.waypoints.min.js' %}"></script>
+<script src="{% static './js/plugins/jquery-modal-video.min.js' %}"></script>
+<script src="{% static './js/plugins/owl.carousel.js' %}"></script>
+<script src="{% static './js/plugins/popper.min.js' %}"></script>
+<script src="{% static './js/plugins/circle-progress.js' %}"></script>
+<script src="{% static './js/plugins/slick.min.js' %}"></script>
+<script src="{% static './js/plugins/stellarnav.js' %}"></script>
+<script src="{% static './js/plugins/wow.min.js' %}"></script>
+<script src="{% static './js/main.js' %}"></script>
+

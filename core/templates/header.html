@@ -1,0 +1,93 @@
+{% load static %}
+<div class="searching">
+   <div class="container">
+      <div class="row">
+         <div class="col-8 text-center m-auto">
+            <div class="v1search_form">
+               <form action="#">
+                  <input type="search" placeholder="Search Here...">
+                  <button type="submit" class="cbtn1">Search</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="close_btn"> <i class="fal fa-times"></i></div>
+</div>
+<div class="topbar white_bg" id="top">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6 col-lg-8 align-self-center">
+            <div class="trancarousel_area">
+               <p class="trand">Son Dakika</p>
+               <div class="trancarousel owl-carousel nav_style1">
+                  {% for sondakika in sondakikahaberleri %}
+                     <div class="trancarousel_item">
+                        <p><a href="javascript:void(0)">{{ sondakika.Haber }}</a></p>
+                     </div>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6 col-lg-4 align-self-center">
+            <div class="top_date_social text-right">
+               <div class="paper_date">
+                  <p>{% now "j F Y H:i" %}</p>
+               </div>
+               <div class="social1">
+                  <ul class="inline">
+                     {% for hesap in sosyalmedyahesaplari %}
+                        <li><a href="{{ hesap.Adres }}" target="_blank"><i class="{{ hesap.IkonID.Ikon }}"></i></a></li>
+                     {% endfor %}
+                     
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="border_black"></div>
+<div class="logo_area white_bg">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-4 align-self-center">
+            <div class="logo">
+               <a href="{% url 'index' %}">
+               <img src="{{ ayarlar.LogoPozitif.url }}" alt="image">
+               </a>
+            </div>
+         </div>
+         <div class="col-lg-8 align-self-center">
+            <div class="banner1">
+               <a href="{% url 'index' %}">
+                  <img src="{{ ayarlar.SiteBanner.url }}" alt="">
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="main-menu" id="header">
+   <a href="#top" class="up_btn up_btn1"><i class="far fa-chevron-double-up"></i></a>
+   <div class="main-nav clearfix is-ts-sticky">
+      <div class="container">
+         <div class="row justify-content-between">
+            <div class="col-12 col-lg-12">
+               <div class="newsprk_nav stellarnav">
+                  <ul id="newsprk_menu">
+                     <li>
+                        <a href="{% url 'index' %}">Ana Sayfa</a>
+                     </li>
+                     {% for kategori in kategoriler %}
+                        <li>
+                           <a href="{% url 'kategoriler' id=kategori.ID %}">{{ kategori.Baslik }}</a>
+                        </li>
+                     {% endfor %}
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
